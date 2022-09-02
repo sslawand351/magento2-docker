@@ -1,0 +1,23 @@
+php bin/magento setup:install \
+--admin-firstname=Admin \
+--admin-lastname=Admin \
+--admin-email=admin@admin.com \
+--admin-user=admin \
+--admin-password='admin123' \
+--base-url=http://docker.magento.local:8081 \
+--backend-frontname=admin \
+--db-host=mysql \
+--db-name=magento \
+--db-user=magento \
+--db-password=aaaaaa \
+--use-rewrites=1 \
+--language=en_US \
+--currency=INR \
+--timezone=Asia/Kolkata \
+--use-secure-admin=1 \
+--admin-use-security-key=1 \
+--session-save=files \
+--elasticsearch-host=es01 \
+--elasticsearch-port=9200 \
+--elasticsearch-index-prefix=m2 \
+--elasticsearch-timeout=15

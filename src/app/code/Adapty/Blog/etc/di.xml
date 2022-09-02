@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="url:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="blog_listing_data_source" xsi:type="string">Adapty\Blog\Model\ResourceModel\Blog\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Adapty\Blog\Model\ResourceModel\Blog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">blogs</argument>
+            <!-- <argument name="eventPrefix" xsi:type="string">size_data_sizegrid_collection</argument>
+            <argument name="eventObject" xsi:type="string">size_data_sizegrid_collection</argument> -->
+            <argument name="resourceModel" xsi:type="string">Adapty\Blog\Model\ResourceModel\Blog</argument>
+        </arguments>
+    </virtualType>
+    <!-- <type name="Magento\Framework\Reflection\DataObjectProcessor">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="Adapty\Blog\Model\Blog" xsi:type="object">Adapty\Blog\Model\Blog</item>
+            </argument>
+        </arguments>
+    </type> -->
+    <preference for="Adapty\Blog\Api\Data\BlogInterface" type="Adapty\Blog\Model\Blog" />
+    <preference for="Adapty\Blog\Api\BlogRepositoryInterface" type="Adapty\Blog\Model\BlogRepository" />
+</config>

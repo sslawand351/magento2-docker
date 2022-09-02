@@ -1,0 +1,8 @@
+<?xml version="1.0"?> 
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Adapty_Blog::blog" title="Blogs" module="Adapty_Blog" sortOrder="50" resource="Adapty_Blog::blog" />
+        <add id="Adapty_Blog::blog_listing" title="Manage Blogs" module="Adapty_Blog" sortOrder="50" resource="Adapty_Blog::blog_listing" action="blog/blog/listing" parent="Adapty_Blog::blog"/>
+        <add id="Adapty_Blog::blog_add" title="Add new Blog" module="Adapty_Blog" sortOrder="50" resource="Adapty_Blog::blog_add" action="blog/blog/new" parent="Adapty_Blog::blog"/>
+    </menu>
+</config>

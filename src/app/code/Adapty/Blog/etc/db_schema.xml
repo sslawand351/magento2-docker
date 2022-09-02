@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="blogs" resource="default" engine="innodb" comment="Blog Entity">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+        <column xsi:type="text" name="short_description" nullable="true" comment="Short Description"/>
+        <column xsi:type="text" name="image_name" nullable="false" comment="Image"/>
+        <column xsi:type="text" name="thumbnail_name" nullable="false" comment="Thumbnail"/>
+
+        <!-- TODO: Add blogs based on the website/store scope -->
+        <!-- <column xsi:type="smallint" name="website_id" unsigned="true" nullable="true" identity="false"
+                default="0" comment="Website ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="true" identity="false"
+                default="0" comment="Store ID"/> -->
+        
+        <column xsi:type="int" name="created_by" unsigned="true" nullable="false" identity="false" comment="Created By"/>
+        <column xsi:type="int" name="updated_by" unsigned="true" nullable="false" identity="false" comment="Updated By"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Updated At"/>
+        <column xsi:type="smallint" name="is_active" unsigned="true" nullable="false" identity="false"
+                default="1" comment="Is Active"/>
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        
+        <!-- <constraint xsi:type="foreign" referenceId="CUSTOMER_ENTITY_STORE_ID_STORE_STORE_ID" table="customer_entity"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="SET NULL"/>
+        <constraint xsi:type="foreign" referenceId="CUSTOMER_ENTITY_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID"
+                    table="customer_entity" column="website_id" referenceTable="store_website"
+                    referenceColumn="website_id" onDelete="SET NULL"/> -->
+        <constraint xsi:type="unique" referenceId="BLOG_ENTITY_UNIQUE_TITLE">
+            <column name="title"/>
+        </constraint>
+        <!-- <index referenceId="CUSTOMER_ENTITY_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+        <index referenceId="CUSTOMER_ENTITY_WEBSITE_ID" indexType="btree">
+            <column name="website_id"/>
+        </index> -->
+    </table>
+</schema>

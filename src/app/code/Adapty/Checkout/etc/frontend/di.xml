@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Checkout\Block\Onepage\Success" type="Adapty\Checkout\Block\Onepage\Success" />
+    <virtualType name="Adapty\Checkout\Model\CalculateTaxDebug" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/checkout.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Adapty\Checkout\Model\CalculateTaxDebugLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">Adapty\Checkout\Model\CalculateTaxDebug</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Adapty\Checkout\Observer\Sales\CalculateTax">
+        <arguments>
+            <argument name="logger" xsi:type="object">Adapty\Checkout\Model\CalculateTaxDebugLogger</argument>
+        </arguments>
+    </type>
+</config>

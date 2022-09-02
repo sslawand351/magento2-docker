@@ -1,0 +1,23 @@
+<?php
+/** @var Adapty\Blog\Block\Timer $block */
+?>
+<div id="digital-clock-timer" data-bind="scope: 'digital-timer'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "#digital-clock-timer": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "digital-timer": {
+                    "component": "Adapty_Blog/js/view/timer",
+                    "config": {
+                        "template": "Adapty_Blog/timer"
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
