@@ -3,6 +3,7 @@
 namespace Adapty\Blog\Api;
 
 use Adapty\Blog\Api\Data\BlogInterface;
+use Adapty\Blog\Model\ResourceModel\Blog\Collection;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\{
     CouldNotSaveException,
@@ -54,7 +55,7 @@ interface BlogRepositoryInterface
     /**
      * Get blog list
      *
-     * @return mixed
+     * @return \array[]
      */
     public function all();
 

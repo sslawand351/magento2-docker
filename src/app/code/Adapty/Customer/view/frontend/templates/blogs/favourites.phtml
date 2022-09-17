@@ -5,5 +5,21 @@
 ?>
 <h3>List of Favourite Blogs</h3>
 
+<table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
 <?php foreach ($block->getBlogs() as $blog): ?>
+        <tr>
+            <td><img width="200px" src="<?php echo $block->getBaseUrl() . $blog->getThumbnailName(); ?>"></td>
+            <td><?php echo $blog->getTitle(); ?></td>
+            <td><?php echo $blog->getShortDescription(); ?></td>
+        </tr>
 <?php endforeach; ?>
+    </tbody>
+</table>

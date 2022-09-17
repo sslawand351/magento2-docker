@@ -4,6 +4,7 @@ namespace Adapty\Blog\Model;
 
 use Adapty\Blog\Api\BlogRepositoryInterface;
 use Adapty\Blog\Api\Data\BlogInterface;
+use Adapty\Blog\Model\ResourceModel\Blog\{Collection, CollectionFactory};
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Throwable;
@@ -11,10 +12,15 @@ use Throwable;
 class BlogRepository implements BlogRepositoryInterface
 {
     private $blogFactory;
+    private $blogCollection;
 
-    public function __construct(BlogFactory $blogFactory)
+    public function __construct(
+        BlogFactory $blogFactory,
+        CollectionFactory $blogCollectionFactory
+    )
     {
         $this->blogFactory = $blogFactory;
+        $this->blogCollection = $blogCollectionFactory;
     }
 
     public function save(BlogInterface $blog): BlogInterface
@@ -50,13 +56,31 @@ class BlogRepository implements BlogRepositoryInterface
         return true;
     }
 
-    public function all(): array
+    /** @inheritDoc */
+    public function all()
     {
-        return [];
+        $blogCollection = $this->blogCollection->create();
+        $blogs = $blogCollection->load();
+
+        return [$blogs->toArray()];
+        // foreach ($blogs as $blog) {
+
+        // }
+        return [
+            'status' => 'success',
+            'message' => 'Blogs fetched successfully',
+            'blogs' => array_map(function ($blog) {
+                return $blog->toArray();
+            }, $blogs->getItems())
+        ];
+        // dd($blogs->getItems());
+        // return $blogs->map();
     }
 
-    public function getList(SearchCriteriaInterface $searchCriteria): array
+    public function getList(SearchCriteriaInterface $searchCriteria)
     {
-        return [];
+        $blogCollection = $this->blogCollection->create();
+        $blogs = $blogCollection->load();
+        return $blogs;
     }
 }

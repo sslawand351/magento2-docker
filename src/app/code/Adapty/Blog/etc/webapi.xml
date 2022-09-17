@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/v1/blog/:id" method="GET">
+    <route url="/V1/blog/:id" method="GET">
         <service class="Adapty\Blog\Api\BlogRepositoryInterface" method="getById" />
         <resources>
-            <resource ref="Adapty_blog::api_get_blog" />
-            <!-- <resource ref="anonymous" /> -->
+            <!-- <resource ref="Adapty_blog::api_get_blog" /> -->
+            <resource ref="anonymous" />
         </resources>
     </route>
-    <route url="/v1/blogs" method="GET">
+    <route url="/V1/blogs" method="GET">
         <service class="Adapty\Blog\Api\BlogRepositoryInterface" method="all" />
         <resources>
-            <resource ref="Adapty_blog::api_get_blogs" />
-            <!-- <resource ref="anonymous" /> -->
+            <!-- <resource ref="Adapty_blog::api_get_blogs" /> -->
+            <resource ref="anonymous" />
         </resources>
     </route>
 </routes>

@@ -44,8 +44,6 @@ class Save extends  \Magento\Backend\App\Action
                 throw new LocalizedException(__('Invalid Request'));
             }
 
-            //validate image
-            $fileUploader = null;
             $params = $this->getRequest()->getParams();
             try {
                 /** @var Adapty\Blog\Model\Blog */

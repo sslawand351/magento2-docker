@@ -1,0 +1,25 @@
+{
+    "shipping_tablerate": {
+        "column": {
+            "fuel_surcharge": true
+        }
+    },
+    "quote": {
+        "column": {
+            "fuel_surcharge_amount": true,
+            "base_fuel_surcharge_amount": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "fuel_surcharge_amount": true,
+            "base_fuel_surcharge_amount": true
+        }
+    },
+    "quote_address": {
+        "column": {
+            "fuel_surcharge_amount": true,
+            "base_fuel_surcharge_amount": true
+        }
+    }
+}

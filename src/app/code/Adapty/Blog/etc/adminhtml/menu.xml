@@ -4,5 +4,6 @@
         <add id="Adapty_Blog::blog" title="Blogs" module="Adapty_Blog" sortOrder="50" resource="Adapty_Blog::blog" />
         <add id="Adapty_Blog::blog_listing" title="Manage Blogs" module="Adapty_Blog" sortOrder="50" resource="Adapty_Blog::blog_listing" action="blog/blog/listing" parent="Adapty_Blog::blog"/>
         <add id="Adapty_Blog::blog_add" title="Add new Blog" module="Adapty_Blog" sortOrder="50" resource="Adapty_Blog::blog_add" action="blog/blog/new" parent="Adapty_Blog::blog"/>
+        <add id="Adapty_Blog::Inventory_Import" title="Inventory Source Import" module="Adapty_Blog" sortOrder="50" resource="Adapty_Blog::inventory_import" action="inventoryimport/inventorysource/import" parent="Adapty_Blog::blog"/>
     </menu>
 </config>
